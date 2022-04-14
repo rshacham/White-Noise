@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class SoundButton : MonoBehaviour
 {
-    private AudioClip mySound;
+    public AudioClip mySound;
     public Slider pitchSlider;
     [SerializeField] AudioSource soundSource;
     public Slider volumeSlider;
@@ -38,7 +38,6 @@ public class SoundButton : MonoBehaviour
     {
         if (mySound != null)
         {
-            print(mySound.length);
             SoundManager._shared.PlayOuterSoundOneTime(soundSource, mySound);
             //SoundManager._shared.mySource.pitch = 1;
         }

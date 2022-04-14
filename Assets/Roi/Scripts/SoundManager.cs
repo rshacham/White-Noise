@@ -8,6 +8,10 @@ public class SoundManager : MonoBehaviour
     public AudioClip  waterSound;
     public AudioSource mySource1;
     public AudioSource mySource2;
+    public AudioSource mySource3;
+    public AudioSource mySource4;
+    public AudioSource mySource5;
+
     // Start is called before the first frame
     void Start()
     {

@@ -22,6 +22,11 @@ public class Bird : MonoBehaviour
     private bool isDead = false;
 
     private Vector3 initPos;
+    
+    public AudioSource audioSourceFruit;
+    public AudioClip audioClipFruit;
+
+    public GameObject inputSound;
 
     [SerializeField] private UnityEvent scoreAnim;
     
@@ -36,6 +41,7 @@ public class Bird : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         transform.eulerAngles = new Vector3(0, 0, 90);
         initPos = transform.position;
+        audioClipFruit = inputSound.GetComponent<SoundButton>().mySound;
 
     }
 
@@ -63,9 +69,13 @@ public class Bird : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        // take sound
+        audioClipFruit = inputSound.GetComponent<SoundButton>().mySound;
+
         if (other.gameObject.name == "fruit(Clone)")
         {
             GameObject.Find("fruitSound").GetComponent<AudioSource>().Play();
+            // SoundManager._shared.PlayOuterSoundOneTime(audioSourceFruit, audioClipFruit);
             return;
         }
 
