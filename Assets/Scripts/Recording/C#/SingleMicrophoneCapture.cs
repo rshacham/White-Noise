@@ -1,3 +1,4 @@
+using System;
 using UnityEngine; //41 Post - Created by DimasTheDriver on July/28/2012 . Part of the 'Unity: Capturing audio from a microphone' post. Available at: http://www.41post.com/?p=4884
 using System.Collections;
 
@@ -7,7 +8,9 @@ public class SingleMicrophoneCapture : MonoBehaviour
 {
 	//A boolean that flags whether there's a connected microphone
 	private bool micConnected = false;
-	
+	private bool timerFinished = false;
+	[SerializeField] private int oneRecordTime;
+
 	//The maximum and minimum available recording frequencies
 	private int minFreq;
 	private int maxFreq;
@@ -56,17 +59,21 @@ public class SingleMicrophoneCapture : MonoBehaviour
 				if(GUI.Button(new Rect(Screen.width/2-100, Screen.height/2-25, 200, 50), "Record"))
 				{
 					//Start recording and store the audio captured from the microphone at the AudioClip in the AudioSource
-					goAudioSource.clip = Microphone.Start(null, true, 20, maxFreq);
+					goAudioSource.clip = Microphone.Start(null, true, oneRecordTime, maxFreq);
+					//Start coroutine that automatically stops the record
+					StartCoroutine(FinishTimer());
 				}
 			}
+			
 			else //Recording is in progress
 			{
-				//Case the 'Stop and Play' button gets pressed
-				if(GUI.Button(new Rect(Screen.width/2-100, Screen.height/2-25, 200, 50), "Stop and Play!"))
+				//Case the 'Stop and Play' button gets pressed, or time ended
+				if(GUI.Button(new Rect(Screen.width/2-100, Screen.height/2-25, 200, 50), "Stop and Play!") || timerFinished)
 				{
 					Microphone.End(null); //Stop the audio recording
 					SavWav.Save("myFile", goAudioSource.clip);
-					goAudioSource.Play(); //Playback the recorded audio
+					print(goAudioSource.clip.length);
+					//goAudioSource.Play(); //Playback the recorded audio
 				}
 				
 				GUI.Label(new Rect(Screen.width/2-100, Screen.height/2+25, 200, 50), "Recording in progress...");
@@ -78,5 +85,11 @@ public class SingleMicrophoneCapture : MonoBehaviour
 			GUI.contentColor = Color.red;
 			GUI.Label(new Rect(Screen.width/2-100, Screen.height/2-25, 200, 50), "Microphone not connected!");
 		}
+	}
+
+	IEnumerator FinishTimer()
+	{
+		yield return new WaitForSeconds(oneRecordTime);
+		timerFinished = true;
 	}
 }
