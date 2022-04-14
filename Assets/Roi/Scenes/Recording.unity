@@ -132,6 +132,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 55552979}
+  - component: {fileID: 55552980}
   m_Layer: 0
   m_Name: Sound
   m_TagString: Untagged
@@ -153,6 +154,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &55552980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 55552978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 933c61480218b5949988a4d6a3146560, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &326311164
 GameObject:
   m_ObjectHideFlags: 0
@@ -312,7 +325,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 483102952}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &483102954
 Camera:
   m_ObjectHideFlags: 0
@@ -528,7 +541,7 @@ MonoBehaviour:
   recordNum: 1
   recordButton: {fileID: 1612856493}
   oneRecordTime: 3
-  soundScript: {fileID: 0}
+  soundScript: {fileID: 55552980}
 --- !u!1 &803844268
 GameObject:
   m_ObjectHideFlags: 0
@@ -540,6 +553,7 @@ GameObject:
   - component: {fileID: 803844271}
   - component: {fileID: 803844270}
   - component: {fileID: 803844269}
+  - component: {fileID: 803844272}
   m_Layer: 0
   m_Name: SoundManager
   m_TagString: Untagged
@@ -670,6 +684,14 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!81 &803844272
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 803844268}
+  m_Enabled: 1
 --- !u!1 &914838885
 GameObject:
   m_ObjectHideFlags: 0
@@ -718,7 +740,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -1171,7 +1193,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1612856493}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a2a7aeb336bbec64aa22b4d08440c84f, type: 3}
   m_Name: 
@@ -1301,7 +1323,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2111075563}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 55552980}
+        m_TargetAssemblyTypeName: SoundButton, Assembly-CSharp
+        m_MethodName: PlaySoundOneTime
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2111075563
 MonoBehaviour:
   m_ObjectHideFlags: 0

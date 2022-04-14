@@ -20,15 +20,28 @@ public class SoundButton : MonoBehaviour
         
     }
 
-    void LoadSound(String path)
+    public void LoadSound(String path)
     {
-        WWW audioLoader = new WWW(path);
+        var audioLoader = new WWW(path + ".wav");
         while (!audioLoader.isDone)
         {
             Debug.Log("uploading");
         }
  
         Debug.Log("1");
-        
+        mySound = audioLoader.GetAudioClip();
+    }
+
+    public void PlaySoundOneTime()
+    {
+        if (mySound != null)
+        {
+            print(mySound.length);
+            SoundManager._shared.PlayOuterSoundOneTime(mySound);
+        }
+        else
+        {
+            print("hey");
+        }
     }
 }

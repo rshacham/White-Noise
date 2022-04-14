@@ -82,6 +82,7 @@ public class RecordWithButton : MonoBehaviour
 					//soundScript.soundPath = Path.Combine(Application.dataPath, soundPath);
 					recordButton.GetComponentInChildren<TextMeshProUGUI>().text = "Record";
 					//goAudioSource.Play(); //Playback the recorded audio
+					soundScript.LoadSound(Path.Combine(Application.dataPath, soundPath));
 			}
 		}
 		
