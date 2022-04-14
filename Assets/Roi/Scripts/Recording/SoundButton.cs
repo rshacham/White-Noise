@@ -4,20 +4,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.UI;
 
 public class SoundButton : MonoBehaviour
 {
     private AudioClip mySound;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Slider pitchSlider;
+    [SerializeField] AudioSource soundSource;
+    public Slider volumeSlider;
 
-    // Update is called once per frame
-    void Update()
+    public float soundPitch = 1; // We need to associate this with a slider, boundaries between 0.2 and 3?
+
+
+    public void Update()
     {
-        
+        soundSource.volume = volumeSlider.value;
+        soundSource.pitch = pitchSlider.value;
     }
 
     public void LoadSound(String path)
@@ -37,7 +39,8 @@ public class SoundButton : MonoBehaviour
         if (mySound != null)
         {
             print(mySound.length);
-            SoundManager._shared.PlayOuterSoundOneTime(mySound);
+            SoundManager._shared.PlayOuterSoundOneTime(soundSource, mySound);
+            //SoundManager._shared.mySource.pitch = 1;
         }
         else
         {

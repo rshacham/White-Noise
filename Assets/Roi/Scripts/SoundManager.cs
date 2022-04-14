@@ -6,12 +6,13 @@ public class SoundManager : MonoBehaviour
 {
     public static SoundManager _shared;
     public AudioClip  waterSound;
-    private AudioSource mySource;
+    public AudioSource mySource1;
+    public AudioSource mySource2;
     // Start is called before the first frame
     void Start()
     {
         _shared = this;
-        mySource = GetComponent<AudioSource>();
+        //mySource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -20,15 +21,13 @@ public class SoundManager : MonoBehaviour
     {
         switch (myAudio)
         {
-            case "waterSound":
-                mySource.PlayOneShot(waterSound);
-                break;
+
         }
     }
 
-    public void PlayOuterSoundOneTime(AudioClip mySound)
+    public void PlayOuterSoundOneTime(AudioSource audioSource, AudioClip mySound)
     {
-        mySource.PlayOneShot(mySound);
+        audioSource.PlayOneShot(mySound);
     }
     
     
