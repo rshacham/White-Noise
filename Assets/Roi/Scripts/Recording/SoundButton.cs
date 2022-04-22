@@ -13,8 +13,6 @@ public class SoundButton : MonoBehaviour
     public Slider pitchSlider;
     [SerializeField] public AudioSource soundSource;
     public Slider volumeSlider;
-    public Slider trimSlider;
-    public Button looperButton;
     private Coroutine myLooper;
     public int looperCounter;
     public LoopButton loopButton;
