@@ -21,7 +21,8 @@ public class SceneManage : MonoBehaviour
 
     private void Awake()
     {
-        toggleImage = toggleObj.GetComponent<Image>();
+        // toggleImage = toggleObj.GetComponent<Image>();
+        toggleImage = toggleObj.transform.Find("toggle image").gameObject.GetComponent<Image>();
     }
 
     public void SceneToggle()
@@ -36,6 +37,7 @@ public class SceneManage : MonoBehaviour
         {
             SceneManager.LoadSceneAsync(otherSceneName, LoadSceneMode.Additive);
             isScene2Active = true;
+            
             toggleImage.sprite = toggleOnSprite;
         }
     }

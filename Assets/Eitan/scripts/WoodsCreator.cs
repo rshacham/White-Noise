@@ -89,7 +89,7 @@ public class WoodsCreator : MonoBehaviour
             GameObject newFruit = Instantiate(fruit, transform);
             // randomize height and fruit kind
             newFruit.transform.position = transform.position + new Vector3(0, Random.Range(-hightUp * 2, hightUp * 2), 0);
-            newFruit.GetComponent<SpriteRenderer>().sprite = fruitList[rnd.Next(0, 4)];
+            // newFruit.GetComponent<SpriteRenderer>().sprite = fruitList[rnd.Next(0, 4)];
             // destroy wood fruit 15 sec'
             Destroy(newFruit, 15);
             // disable fruit generating
