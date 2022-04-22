@@ -62,7 +62,7 @@ public class WoodsCreator : MonoBehaviour
         if (timer > maxTime)
         {
             // create new wood at the right corner of the screen
-            GameObject newWood = Instantiate(woodPrefab);
+            GameObject newWood = Instantiate(woodPrefab, transform);
             // randomize the wood's height and width
             newWood.transform.position = Random.Range(0f, 1f) > 0.5f
                 ? transform.position + new Vector3(0, hightUp, 0)
@@ -86,7 +86,7 @@ public class WoodsCreator : MonoBehaviour
         if (fruitFlag && timerFruit > 0.5f * maxTime && fruitIsAllowed)
         {
             // create new fruit at the right corner of the screen
-            GameObject newFruit = Instantiate(fruit);
+            GameObject newFruit = Instantiate(fruit, transform);
             // randomize height and fruit kind
             newFruit.transform.position = transform.position + new Vector3(0, Random.Range(-hightUp * 2, hightUp * 2), 0);
             newFruit.GetComponent<SpriteRenderer>().sprite = fruitList[rnd.Next(0, 4)];
