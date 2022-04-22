@@ -67,7 +67,7 @@ public class SoundButton : MonoBehaviour
     {
         looperCounter++;
         Vector3 markRotation = loopMarkTransform.eulerAngles;
-        loopMarkTransform.eulerAngles = new Vector3(markRotation.x, markRotation.y, markRotations[looperCounter % 4]);
+        loopMarkTransform.eulerAngles = new Vector3(markRotation.x, markRotation.y, markRotations[looperCounter % markRotations.Count]);
         
         if (soundSource.clip == null || !loopButton.isOn)
         {
@@ -77,13 +77,13 @@ public class SoundButton : MonoBehaviour
         if (myLooper == null)
         {
             SoundManager._shared.loopSound = true;
-            myLooper = SoundManager._shared.StartLooper(soundSource, soundSource.clip, looperCounter % 4);
+            myLooper = SoundManager._shared.StartLooper(soundSource, soundSource.clip, looperCounter % markRotations.Count);
         }
 
         else
         {
             SoundManager._shared.loopSound = true;
-            SoundManager._shared.LooperEnumerators[soundSource] = SoundManager._shared.mySpeeds[looperCounter % 4];
+            SoundManager._shared.LooperEnumerators[soundSource] = SoundManager._shared.mySpeeds[looperCounter % markRotations.Count];
         }
     }
 
