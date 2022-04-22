@@ -12,6 +12,10 @@ public class SoundManager : MonoBehaviour
     public AudioSource mySource4;
     public AudioSource mySource5;
 
+    public bool loopSound;
+    [SerializeField] public List<float> mySpeeds;
+    public Dictionary<AudioSource, float> LooperEnumerators = new Dictionary<AudioSource, float>();
+
     // Start is called before the first frame
     void Start()
     {
@@ -25,18 +29,45 @@ public class SoundManager : MonoBehaviour
     {
         switch (myAudio)
         {
-
+            
         }
     }
 
     public void PlayOuterSoundOneTime(AudioSource audioSource, AudioClip mySound)
     {
-        audioSource.PlayOneShot(mySound);
+        audioSource.clip = mySound;
+        audioSource.Play();
     }
-    
-    
+
+
+    public Coroutine StartLooper(AudioSource audioSource, AudioClip mySound, int currentDelay)
+    {
+        audioSource.clip = mySound;
+        if (!LooperEnumerators.ContainsKey(audioSource))
+        {
+            LooperEnumerators.Add(audioSource, currentDelay);
+        }
+        return StartCoroutine(LooperSpeed(audioSource, mySound));
+    }
     public void StopSound()
     {
         
+    }
+
+    IEnumerator LooperSpeed(AudioSource audioSource, AudioClip mySound)
+    {
+        while (true)
+        {
+            if (LooperEnumerators[audioSource] < 50)
+            {
+                audioSource.Play();
+                Debug.Log(LooperEnumerators[audioSource] + audioSource.clip.length);
+                yield return new WaitForSeconds(LooperEnumerators[audioSource] + audioSource.clip.length);
+            }
+            else
+            {
+                yield return new WaitForSeconds(1);
+            }
+        }
     }
 }
