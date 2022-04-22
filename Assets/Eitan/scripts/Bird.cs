@@ -41,7 +41,7 @@ public class Bird : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         transform.eulerAngles = new Vector3(0, 0, 90);
         initPos = transform.position;
-        audioClipFruit = inputSound.GetComponent<SoundButton>().mySound;
+        // audioClipFruit = inputSound.GetComponent<SoundButton>().mySound;
 
     }
 
@@ -70,7 +70,7 @@ public class Bird : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         // take sound
-        audioClipFruit = inputSound.GetComponent<SoundButton>().mySound;
+        // audioClipFruit = inputSound.GetComponent<SoundButton>().mySound;
 
         if (other.gameObject.name == "fruit(Clone)")
         {

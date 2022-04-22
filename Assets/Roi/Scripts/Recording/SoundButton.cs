@@ -41,9 +41,11 @@ public class SoundButton : MonoBehaviour
         var audioLoader = new WWW(path + ".wav");
         while (!audioLoader.isDone)
         {
-            Debug.Log("uploading");
+            // Debug.Log("uploading");
         }
- 
+        
+        // Debug.Log("1");
+
         mySound = audioLoader.GetAudioClip();
         soundSource.clip = mySound;
     }
@@ -57,7 +59,7 @@ public class SoundButton : MonoBehaviour
         
         else
         {
-            print("hey");
+            // print("hey");
         }
     }
 
