@@ -20,15 +20,18 @@ public class PlayButton : MonoBehaviour
     {
         if (soundScript.soundSource.clip == null)
         {
+            buttonImage.color = soundScript.fadeColor;
             buttonImage.sprite = buttonSprites[0];
         }
         else if (soundScript.soundSource.isPlaying)
         {
+            buttonImage.color = Color.white;
             buttonImage.sprite = buttonSprites[2];
         }
 
         else
         {
+            buttonImage.color = Color.white;
             buttonImage.sprite = buttonSprites[1];
         }
     }

@@ -17,16 +17,19 @@ public class LoopButton : MonoBehaviour
         Image myImage = this.gameObject.GetComponent<Image>();
         if (soundScript.soundSource.clip == null)
         {
+            myImage.color = soundScript.fadeColor;
             myImage.sprite = mySprites[0];
         }
 
         else if (isOn)
         {
+            myImage.color = Color.white;
             myImage.sprite = mySprites[2];
         }
 
         else
         {
+            myImage.color = Color.white;
             myImage.sprite = mySprites[1];
         }
     }

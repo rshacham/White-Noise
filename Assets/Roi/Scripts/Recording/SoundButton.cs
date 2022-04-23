@@ -22,6 +22,7 @@ public class SoundButton : MonoBehaviour
     // [SerializeField] private Image looperSpeedImage;
     // [SerializeField] private List<Sprite> looperSpeedSprites;
 
+    [SerializeField] public Color fadeColor;
     [SerializeField] private List<GameObject> buttonsObjects;
     public float soundPitch = 1; // We need to associate this with a slider, boundaries between 0.2 and 3?
 

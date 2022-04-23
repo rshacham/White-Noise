@@ -23,6 +23,8 @@ public class Sliders : MonoBehaviour
     {
         if (soundScript.soundSource.clip == null)
         {
+            buttonImage.color = soundScript.fadeColor;
+            markerImage.color = soundScript.fadeColor;
             buttonImage.sprite = sliderSprites[0];
             markerImage.sprite = markerSprites[0];
 
@@ -30,6 +32,8 @@ public class Sliders : MonoBehaviour
 
         else
         {
+            buttonImage.color = Color.white;
+            markerImage.color = Color.white;
             buttonImage.sprite = sliderSprites[1];
             markerImage.sprite = markerSprites[1];
         }

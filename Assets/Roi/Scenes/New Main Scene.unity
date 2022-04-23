@@ -877,6 +877,22 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2220160541954956546, guid: a29f027ba0b7ecb45abee97be1ee340e, type: 3}
+      propertyPath: fadeColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2220160541954956546, guid: a29f027ba0b7ecb45abee97be1ee340e, type: 3}
+      propertyPath: fadeColor.b
+      value: 0.5849056
+      objectReference: {fileID: 0}
+    - target: {fileID: 2220160541954956546, guid: a29f027ba0b7ecb45abee97be1ee340e, type: 3}
+      propertyPath: fadeColor.g
+      value: 0.5849056
+      objectReference: {fileID: 0}
+    - target: {fileID: 2220160541954956546, guid: a29f027ba0b7ecb45abee97be1ee340e, type: 3}
+      propertyPath: fadeColor.r
+      value: 0.5849056
+      objectReference: {fileID: 0}
+    - target: {fileID: 2220160541954956546, guid: a29f027ba0b7ecb45abee97be1ee340e, type: 3}
       propertyPath: soundSource
       value: 
       objectReference: {fileID: 82287710}
