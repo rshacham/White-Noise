@@ -45,4 +45,9 @@ public class SceneManage : MonoBehaviour
             toggleImage.sprite = toggleOnSprite;
         }
     }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene("New Main Scene 1");
+    }
 }
