@@ -18,6 +18,10 @@ public class RecordWithButton : MonoBehaviour
 	[SerializeField] public GameObject recordButton;
 	[SerializeField] private int oneRecordTime;
 	[SerializeField] private SoundButton soundScript;
+	
+	private float curRecordTime = 0;
+	[SerializeField] private Image buttonImage;
+	[SerializeField] private List<Sprite> buttonSprites;
 
 	//The maximum and minimum available recording frequencies
 	private int minFreq;
@@ -65,24 +69,18 @@ public class RecordWithButton : MonoBehaviour
 			if(!Microphone.IsRecording(null))
 			{
 				recordOn = true;
+				curRecordTime = 0;
 				//Start recording and store the audio captured from the microphone at the AudioClip in the AudioSource
 					goAudioSource.clip = Microphone.Start(null, true, oneRecordTime, maxFreq);
 					//Start coroutine that automatically stops the record
 					StartCoroutine(FinishTimer());
-					recordButton.GetComponentInChildren<TextMeshProUGUI>().text = "Recording...";
 			}
 			
 			else //Recording is in progress
 			{
 				//Case the 'Stop and Play' button gets pressed, or time ended
 					
-					Microphone.End(null); //Stop the audio recording
-					String soundPath = "record" + recordNum.ToString();
-					SavWav.Save(soundPath, goAudioSource.clip);
-					//soundScript.soundPath = Path.Combine(Application.dataPath, soundPath);
-					recordButton.GetComponentInChildren<TextMeshProUGUI>().text = "Record";
-					//goAudioSource.Play(); //Playback the recorded audio
-					soundScript.LoadSound(Path.Combine(Application.dataPath, soundPath));
+					StopRecord();
 			}
 		}
 		
@@ -94,12 +92,47 @@ public class RecordWithButton : MonoBehaviour
 		}
 	}
 
+	private void StopRecord()
+	{
+		recordOn = false;
+		Microphone.End(null); //Stop the audio recording
+		if (curRecordTime < oneRecordTime)
+		{
+			curRecordTime = 0;
+			buttonImage.sprite = buttonSprites[0];
+			return;
+		}
+		
+		String soundPath = "record" + recordNum.ToString();
+		SavWav.Save(soundPath, goAudioSource.clip);
+		//soundScript.soundPath = Path.Combine(Application.dataPath, soundPath);
+		//goAudioSource.Play(); //Playback the recorded audio
+		soundScript.LoadSound(Path.Combine(Application.dataPath, soundPath));
+	}
+
+	void Update()
+	{
+		float normalizedValue = Mathf.InverseLerp(0, oneRecordTime, curRecordTime);
+		float curSprite = Mathf.Lerp(0, buttonSprites.Count - 1, normalizedValue);
+		if (curSprite > 9)
+		{
+			curSprite = 9;
+		}
+		print((int) curSprite);
+		print(buttonSprites.Count);
+		buttonImage.sprite = buttonSprites[(int) curSprite];
+		if (recordOn)
+		{
+			curRecordTime += Time.deltaTime;
+		}
+	}
+
 	IEnumerator FinishTimer()
 	{
 		yield return new WaitForSeconds(oneRecordTime);
-		if (Microphone.IsRecording(null))
+		if (Microphone.IsRecording(null) && curRecordTime >= oneRecordTime)
 		{
-			Record();
+			StopRecord();
 		}
 	}
 
