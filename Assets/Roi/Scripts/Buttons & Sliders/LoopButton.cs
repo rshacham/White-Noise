@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,10 +12,28 @@ public class LoopButton : MonoBehaviour
     public bool isOn = false;
     public SoundButton soundScript;
 
+    public void Update()
+    {
+        Image myImage = this.gameObject.GetComponent<Image>();
+        if (soundScript.soundSource.clip == null)
+        {
+            myImage.sprite = mySprites[0];
+        }
+
+        else if (isOn)
+        {
+            myImage.sprite = mySprites[2];
+        }
+
+        else
+        {
+            myImage.sprite = mySprites[1];
+        }
+    }
+
     public void PressedLoop()
     {
         isOn = !isOn;
-        Image myImage = this.gameObject.GetComponent<Image>();
 
         if (!isOn)
         {
@@ -22,16 +41,6 @@ public class LoopButton : MonoBehaviour
             {
                 soundScript.soundSource.Stop();
             }
-        }
-
-        if (isOn)
-        {
-            myImage.sprite = mySprites[1];
-        }
-
-        else
-        {
-            myImage.sprite = mySprites[0];
         }
 
         soundScript.looperCounter--;

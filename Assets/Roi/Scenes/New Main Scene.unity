@@ -324,6 +324,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 872318472}
     m_Modifications:
+    - target: {fileID: 2220160539848344562, guid: a29f027ba0b7ecb45abee97be1ee340e, type: 3}
+      propertyPath: mySprites.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2220160539848344562, guid: a29f027ba0b7ecb45abee97be1ee340e, type: 3}
+      propertyPath: mySprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 367cd84c993914d3591b34cdbb81e608, type: 3}
+    - target: {fileID: 2220160539848344562, guid: a29f027ba0b7ecb45abee97be1ee340e, type: 3}
+      propertyPath: mySprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: d5eb4e043e852c04e9e0fd61970693a6, type: 3}
+    - target: {fileID: 2220160539848344562, guid: a29f027ba0b7ecb45abee97be1ee340e, type: 3}
+      propertyPath: mySprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: b3b1b5afe86b27443bee2870d2ba468b, type: 3}
     - target: {fileID: 2220160539848344563, guid: a29f027ba0b7ecb45abee97be1ee340e, type: 3}
       propertyPath: m_SizeDelta.x
       value: 65.0957
