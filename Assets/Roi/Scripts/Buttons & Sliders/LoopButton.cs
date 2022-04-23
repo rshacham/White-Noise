@@ -16,6 +16,14 @@ public class LoopButton : MonoBehaviour
         isOn = !isOn;
         Image myImage = this.gameObject.GetComponent<Image>();
 
+        if (!isOn)
+        {
+            if (soundScript.soundSource.isPlaying)
+            {
+                soundScript.soundSource.Stop();
+            }
+        }
+
         if (isOn)
         {
             myImage.sprite = mySprites[1];

@@ -40,29 +40,29 @@ public class SoundManager : MonoBehaviour
     }
 
 
-    public Coroutine StartLooper(AudioSource audioSource, AudioClip mySound, int currentDelay)
+    public Coroutine StartLooper(SoundButton myScript, AudioSource audioSource, AudioClip mySound, int currentDelay)
     {
         audioSource.clip = mySound;
         if (!LooperEnumerators.ContainsKey(audioSource))
         {
             LooperEnumerators.Add(audioSource, currentDelay);
         }
-        return StartCoroutine(LooperSpeed(audioSource, mySound));
+        return StartCoroutine(LooperSpeed(myScript, audioSource, mySound));
     }
     public void StopSound()
     {
         
     }
 
-    IEnumerator LooperSpeed(AudioSource audioSource, AudioClip mySound)
+    IEnumerator LooperSpeed(SoundButton myScript, AudioSource audioSource, AudioClip mySound)
     {
         while (true)
         {
-            if (LooperEnumerators[audioSource] < 50)
+            if (LooperEnumerators[audioSource] < 50 && myScript.loopButton.isOn)
             {
                 audioSource.Play();
                 Debug.Log(LooperEnumerators[audioSource] + audioSource.clip.length);
-                yield return new WaitForSeconds(LooperEnumerators[audioSource] + audioSource.clip.length);
+                yield return new WaitForSeconds(LooperEnumerators[audioSource] + (audioSource.clip.length / audioSource.pitch));
             }
             else
             {

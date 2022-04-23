@@ -94,6 +94,7 @@ public class RecordWithButton : MonoBehaviour
 
 	private void StopRecord()
 	{
+		soundScript.soundSource.clip = null;
 		recordOn = false;
 		Microphone.End(null); //Stop the audio recording
 		if (curRecordTime < oneRecordTime)
@@ -102,7 +103,7 @@ public class RecordWithButton : MonoBehaviour
 			buttonImage.sprite = buttonSprites[0];
 			return;
 		}
-		
+
 		String soundPath = "record" + recordNum.ToString();
 		SavWav.Save(soundPath, goAudioSource.clip);
 		//soundScript.soundPath = Path.Combine(Application.dataPath, soundPath);
@@ -130,10 +131,12 @@ public class RecordWithButton : MonoBehaviour
 	IEnumerator FinishTimer()
 	{
 		yield return new WaitForSeconds(oneRecordTime);
+		soundScript.soundSource.clip = null;
 		if (Microphone.IsRecording(null) && curRecordTime >= oneRecordTime)
 		{
 			StopRecord();
 		}
+		
 	}
 
 	public void StartAndStopRecord()

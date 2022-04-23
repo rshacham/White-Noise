@@ -31,7 +31,7 @@ public class SoundButton : MonoBehaviour
     public void Update()
     {
         soundSource.volume = volumeSlider.value;
-        soundSource.pitch = pitchSlider.value; 
+        soundSource.pitch = pitchSlider.value;
     }
 
     public void LoadSound(String path)
@@ -50,15 +50,20 @@ public class SoundButton : MonoBehaviour
 
     public void PlaySoundOneTime()
     {
-        if (mySound != null)
+        if (soundSource.clip != null)
         {
-            SoundManager._shared.PlayOuterSoundOneTime(soundSource, mySound);
+            soundSource.PlayOneShot(soundSource.clip);
+
         }
-        
-        else
-        {
-            // print("hey");
-        }
+        // if (mySound != null)
+        // {
+        //     SoundManager._shared.PlayOuterSoundOneTime(soundSource, mySound);
+        // }
+        //
+        // else
+        // {
+        //     // print("hey");
+        // }
     }
 
     public void ChangeLooper()
@@ -75,7 +80,7 @@ public class SoundButton : MonoBehaviour
         if (myLooper == null)
         {
             SoundManager._shared.loopSound = true;
-            myLooper = SoundManager._shared.StartLooper(soundSource, soundSource.clip, looperCounter % markRotations.Count);
+            myLooper = SoundManager._shared.StartLooper(this, soundSource, soundSource.clip, looperCounter % markRotations.Count);
         }
 
         else
@@ -92,5 +97,7 @@ public class SoundButton : MonoBehaviour
             SoundManager._shared.LooperEnumerators[soundSource] = 100;
         }
     }
+    
+    
     
 }
