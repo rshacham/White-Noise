@@ -19,7 +19,10 @@ public class SoundButton : MonoBehaviour
 
     public RectTransform loopMarkTransform;
     [SerializeField] private List<float> markRotations;
+    // [SerializeField] private Image looperSpeedImage;
+    // [SerializeField] private List<Sprite> looperSpeedSprites;
 
+    [SerializeField] private List<GameObject> buttonsObjects;
     public float soundPitch = 1; // We need to associate this with a slider, boundaries between 0.2 and 3?
 
 
@@ -96,6 +99,20 @@ public class SoundButton : MonoBehaviour
         {
             SoundManager._shared.LooperEnumerators[soundSource] = 100;
         }
+    }
+
+    public void OffImages()
+    {
+        for (int i = 0; i < buttonsObjects.Count; i++)
+        {
+            var image = buttonsObjects[i].GetComponent<Image>();
+            
+        }
+    }
+
+    public void OnImages()
+    {
+        
     }
     
     

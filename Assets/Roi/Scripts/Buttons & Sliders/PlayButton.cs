@@ -8,7 +8,6 @@ public class PlayButton : MonoBehaviour
     private Image buttonImage;
 
     [SerializeField] private List<Sprite> buttonSprites;
-
     [SerializeField] private SoundButton soundScript;
     // Start is called before the first frame update
     void Start()
@@ -19,14 +18,18 @@ public class PlayButton : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (soundScript.soundSource.isPlaying)
+        if (soundScript.soundSource.clip == null)
         {
-            buttonImage.sprite = buttonSprites[1];
+            buttonImage.sprite = buttonSprites[0];
+        }
+        else if (soundScript.soundSource.isPlaying)
+        {
+            buttonImage.sprite = buttonSprites[2];
         }
 
         else
         {
-            buttonImage.sprite = buttonSprites[0];
+            buttonImage.sprite = buttonSprites[1];
         }
     }
 }

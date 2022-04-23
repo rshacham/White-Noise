@@ -14,6 +14,7 @@ public class RecordWithButton : MonoBehaviour
 	private bool micConnected = false;
 	private bool timerFinished = false;
 	public bool recordOn = false;
+	public bool loaded = false;
 	[SerializeField] private int recordNum;
 	[SerializeField] public GameObject recordButton;
 	[SerializeField] private int oneRecordTime;
@@ -22,7 +23,8 @@ public class RecordWithButton : MonoBehaviour
 	private float curRecordTime = 0;
 	[SerializeField] private Image buttonImage;
 	[SerializeField] private List<Sprite> buttonSprites;
-
+	
+	
 	//The maximum and minimum available recording frequencies
 	private int minFreq;
 	private int maxFreq;
@@ -68,6 +70,7 @@ public class RecordWithButton : MonoBehaviour
 			//If the audio from any microphone isn't being recorded
 			if(!Microphone.IsRecording(null))
 			{
+				soundScript.soundSource.clip = null;
 				recordOn = true;
 				curRecordTime = 0;
 				//Start recording and store the audio captured from the microphone at the AudioClip in the AudioSource
@@ -99,11 +102,13 @@ public class RecordWithButton : MonoBehaviour
 		Microphone.End(null); //Stop the audio recording
 		if (curRecordTime < oneRecordTime)
 		{
+			loaded = false;
 			curRecordTime = 0;
 			buttonImage.sprite = buttonSprites[0];
 			return;
 		}
 
+		loaded = true;
 		String soundPath = "record" + recordNum.ToString();
 		SavWav.Save(soundPath, goAudioSource.clip);
 		//soundScript.soundPath = Path.Combine(Application.dataPath, soundPath);
