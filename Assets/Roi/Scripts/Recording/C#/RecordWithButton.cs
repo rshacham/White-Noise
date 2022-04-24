@@ -131,8 +131,8 @@ public class RecordWithButton : MonoBehaviour
 		soundScript.TurnButtons(true);
 		loaded = true;
 		soundScript.soundSource.clip = goAudioSource.clip;
-		String soundPath = "record" + recordNum.ToString();
-		SavWav.Save(soundPath, goAudioSource.clip);
+		//String soundPath = "record" + recordNum.ToString();
+		//SavWav.Save(soundPath, goAudioSource.clip);
 		//soundScript.soundPath = Path.Combine(Application.dataPath, soundPath);
 		//goAudioSource.Play(); //Playback the recorded audio
 		//soundScript.LoadSound(Path.Combine(Application.dataPath, soundPath));
