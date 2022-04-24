@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class SceneManage : MonoBehaviour
 {
+    [SerializeField] private string thirdScenName;
+    
     private string otherSceneName = "voicy bird";
     
     private Scene scene2;
@@ -37,11 +39,11 @@ public class SceneManage : MonoBehaviour
             isScene2Active = false;
             toggleImage.sprite = toggleOffSprite;
         }
+        
         else
         {
             SceneManager.LoadSceneAsync(otherSceneName, LoadSceneMode.Additive);
             isScene2Active = true;
-            
             toggleImage.sprite = toggleOnSprite;
         }
     }
