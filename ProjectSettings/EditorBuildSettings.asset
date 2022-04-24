@@ -8,4 +8,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Roi/Scenes/New Main Scene.unity
     guid: 6bd02af8abf1eea43b3c95dab3c9e5a0
+  - enabled: 1
+    path: Assets/Eitan/Scenes other/scene 1.unity
+    guid: 508550e02b57d5143bb1940c8dd0ad13
+  - enabled: 1
+    path: Assets/Eitan/Scenes other/scene 2.unity
+    guid: cd701ae250ce42b4c98b4e38829f4bcd
+  - enabled: 1
+    path: Assets/Eitan/Scenes/eitan scene.unity
+    guid: 7f3703ae4b3157c41bb09fbdede062e2
+  - enabled: 1
+    path: Assets/Eitan/Scenes/voicy bird.unity
+    guid: 62a07d9f0ae22234185dc1d7c1e86d0a
   m_configObjects: {}

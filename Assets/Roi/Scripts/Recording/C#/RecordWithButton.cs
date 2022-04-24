@@ -108,6 +108,12 @@ public class RecordWithButton : MonoBehaviour
 			return;
 		}
 
+		if (!SoundManager._shared.OneClipLoaded())
+		{
+			SoundManager._shared.TurnOnAnimations();
+		}
+		
+		soundScript.TurnButtons(true);
 		loaded = true;
 		String soundPath = "record" + recordNum.ToString();
 		SavWav.Save(soundPath, goAudioSource.clip);

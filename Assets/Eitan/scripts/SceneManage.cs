@@ -27,6 +27,10 @@ public class SceneManage : MonoBehaviour
 
     public void SceneToggle()
     {
+        if (!SoundManager._shared.OneClipLoaded())
+        {
+            return;
+        }
         if (isScene2Active)
         {
             SceneManager.UnloadSceneAsync(otherSceneName);

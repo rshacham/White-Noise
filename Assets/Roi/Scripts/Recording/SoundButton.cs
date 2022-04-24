@@ -24,13 +24,17 @@ public class SoundButton : MonoBehaviour
 
     [SerializeField] public Color fadeColor;
     [SerializeField] private List<GameObject> buttonsObjects;
-    public float soundPitch = 1; // We need to associate this with a slider, boundaries between 0.2 and 3?
+
+    [SerializeField] private List<Slider> unitSliders;
+    [SerializeField] private List<Button> unitButtons;
 
 
     void Start()
     {
         Vector3 a = loopMarkTransform.eulerAngles;
         loopMarkTransform.eulerAngles = new Vector3(a.x, a.y, markRotations[0]);
+        TurnButtons(false);
+
     }
     public void Update()
     {
@@ -102,18 +106,17 @@ public class SoundButton : MonoBehaviour
         }
     }
 
-    public void OffImages()
+    public void TurnButtons(bool state)
     {
-        for (int i = 0; i < buttonsObjects.Count; i++)
+        foreach (var button in unitButtons)
         {
-            var image = buttonsObjects[i].GetComponent<Image>();
-            
+            button.enabled = state;
         }
-    }
-
-    public void OnImages()
-    {
         
+        foreach (var slider in unitSliders)
+        {
+            slider.enabled = state;
+        }
     }
     
     

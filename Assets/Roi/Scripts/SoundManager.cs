@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,22 +12,33 @@ public class SoundManager : MonoBehaviour
     public AudioSource mySource2;
     public AudioSource mySource3;
     public AudioSource mySource4;
-    public AudioSource[] mySources;
 
+    public List<AudioSource> mySources;
     public bool loopSound;
     [SerializeField] public List<float> mySpeeds;
     public Dictionary<AudioSource, float> LooperEnumerators = new Dictionary<AudioSource, float>();
+    [SerializeField] private List<Animator> gameAnimators;
 
     // Start is called before the first frame
     void Start()
     {
-        _shared = this;
-        mySources.Append(mySource1);
-        mySources.Append(mySource2);
-        mySources.Append(mySource3);
-        mySources.Append(mySource4);
+        mySources.Add(mySource1);
+        mySources.Add(mySource2);
+        mySources.Add(mySource3);
+        mySources.Add(mySource4);
 
+        foreach (var animator in gameAnimators)
+        {
+            animator.enabled = false;
+        }
+
+        _shared = this;
         //mySource = GetComponent<AudioSource>();
+    }
+
+    private void Update()
+    {
+
     }
 
     // Update is called once per frame
@@ -79,15 +91,24 @@ public class SoundManager : MonoBehaviour
 
     public bool OneClipLoaded()
     {
-        bool result = false;
         foreach (var source in mySources)
         {
             if (source.clip != null)
             {
-                result = true;
-                break;
+                return true;
             }
         }
-        return result;
+        return false;
+    }
+
+    public void TurnOnAnimations()
+    {
+        print("hey");
+
+        foreach (var animator in gameAnimators)
+        {
+            print("hey");
+            animator.enabled = true;
+        }
     }
 }
