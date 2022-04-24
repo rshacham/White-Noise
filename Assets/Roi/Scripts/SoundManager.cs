@@ -13,6 +13,8 @@ public class SoundManager : MonoBehaviour
     public AudioSource mySource3;
     public AudioSource mySource4;
 
+    [SerializeField] private AudioSource startingSoundSource;
+
     public List<AudioSource> mySources;
     public bool loopSound;
     [SerializeField] public List<float> mySpeeds;
@@ -32,13 +34,16 @@ public class SoundManager : MonoBehaviour
             animator.enabled = false;
         }
 
+        startingSoundSource.time = 2f;
+        startingSoundSource.Play();
+
         _shared = this;
         //mySource = GetComponent<AudioSource>();
     }
 
     private void Update()
     {
-
+        print(mySource4.time);
     }
 
     // Update is called once per frame
@@ -84,8 +89,9 @@ public class SoundManager : MonoBehaviour
             {
                 audioSource.Play();
                 Debug.Log(LooperEnumerators[audioSource] + audioSource.clip.length);
-                yield return new WaitForSeconds(LooperEnumerators[audioSource] + (audioSource.clip.length / audioSource.pitch));
+                yield return new WaitForSeconds(LooperEnumerators[audioSource] + (audioSource.clip.length / audioSource.pitch) - myScript.recordDelay / audioSource.pitch);
             }
+            
             else
             {
                 yield return new WaitForSeconds(1);

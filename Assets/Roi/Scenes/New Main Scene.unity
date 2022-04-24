@@ -956,6 +956,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2220160541954956546, guid: a29f027ba0b7ecb45abee97be1ee340e, type: 3}
+      propertyPath: recordDelay
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2220160541954956546, guid: a29f027ba0b7ecb45abee97be1ee340e, type: 3}
       propertyPath: soundSource
       value: 
       objectReference: {fileID: 82287710}
@@ -2762,6 +2766,10 @@ PrefabInstance:
       propertyPath: pitchSlider
       value: 
       objectReference: {fileID: 720674190}
+    - target: {fileID: 7157788018624764935, guid: d93d172438c3f1d4eb192e1bf77165b0, type: 3}
+      propertyPath: recordDelay
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7157788018624764935, guid: d93d172438c3f1d4eb192e1bf77165b0, type: 3}
       propertyPath: soundSource
       value: 
@@ -6603,6 +6611,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2220160541954956546, guid: a29f027ba0b7ecb45abee97be1ee340e, type: 3}
+      propertyPath: recordDelay
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2220160541954956546, guid: a29f027ba0b7ecb45abee97be1ee340e, type: 3}
       propertyPath: soundSource
       value: 
       objectReference: {fileID: 82287709}
@@ -6671,6 +6683,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7479165819925286226, guid: 61fdc1b84df3551448d1d9e26f3950de, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: bf44dd2b60a508a468880201a143e9c6, type: 3}
     - target: {fileID: 9128230322625490800, guid: 61fdc1b84df3551448d1d9e26f3950de, type: 3}
       propertyPath: mySource1
       value: 
@@ -6695,6 +6711,10 @@ PrefabInstance:
       propertyPath: mySpeeds.Array.size
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 9128230322625490800, guid: 61fdc1b84df3551448d1d9e26f3950de, type: 3}
+      propertyPath: startingSoundSource
+      value: 
+      objectReference: {fileID: 82287707}
     - target: {fileID: 9128230322625490800, guid: 61fdc1b84df3551448d1d9e26f3950de, type: 3}
       propertyPath: mySpeeds.Array.data[0]
       value: 1.6

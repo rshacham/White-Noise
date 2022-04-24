@@ -9,18 +9,23 @@ public class Spaceship : MonoBehaviour
     [SerializeField] private float rightBound;
     [SerializeField] [Range(0, 1)] float LerpConstant;
     [SerializeField] private float movementForce;
+    private Shooter myShooter;
 
     private Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        myShooter = GetComponentInChildren<Shooter>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            myShooter.Shoot();
+        }
     }
 
     private void FixedUpdate()
@@ -38,6 +43,8 @@ public class Spaceship : MonoBehaviour
                     spaceshipPosition.z);
 
         }
+
+
         
     }
 }

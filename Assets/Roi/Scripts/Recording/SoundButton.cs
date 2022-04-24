@@ -27,6 +27,7 @@ public class SoundButton : MonoBehaviour
 
     [SerializeField] private List<Slider> unitSliders;
     [SerializeField] private List<Button> unitButtons;
+    [SerializeField] public float recordDelay;
 
 
     void Start()
@@ -64,7 +65,7 @@ public class SoundButton : MonoBehaviour
         }
         if (soundSource.clip != null)
         {
-            //soundSource.time = 0;
+            soundSource.time = recordDelay;
             soundSource.Play();
         }
         // if (mySound != null)
