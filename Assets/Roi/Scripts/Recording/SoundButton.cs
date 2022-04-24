@@ -36,7 +36,6 @@ public class SoundButton : MonoBehaviour
     {
         soundSource.volume = volumeSlider.value;
         soundSource.pitch = pitchSlider.value;
-        print(soundSource.time);
     }
 
     public void LoadSound(String path)

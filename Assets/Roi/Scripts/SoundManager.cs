@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class SoundManager : MonoBehaviour
@@ -10,7 +11,7 @@ public class SoundManager : MonoBehaviour
     public AudioSource mySource2;
     public AudioSource mySource3;
     public AudioSource mySource4;
-    public AudioSource mySource5;
+    public AudioSource[] mySources;
 
     public bool loopSound;
     [SerializeField] public List<float> mySpeeds;
@@ -20,6 +21,11 @@ public class SoundManager : MonoBehaviour
     void Start()
     {
         _shared = this;
+        mySources.Append(mySource1);
+        mySources.Append(mySource2);
+        mySources.Append(mySource3);
+        mySources.Append(mySource4);
+
         //mySource = GetComponent<AudioSource>();
     }
 
@@ -69,5 +75,19 @@ public class SoundManager : MonoBehaviour
                 yield return new WaitForSeconds(1);
             }
         }
+    }
+
+    public bool OneClipLoaded()
+    {
+        bool result = false;
+        foreach (var source in mySources)
+        {
+            if (source.clip != null)
+            {
+                result = true;
+                break;
+            }
+        }
+        return result;
     }
 }
