@@ -19,8 +19,6 @@ public class SoundButton : MonoBehaviour
 
     public RectTransform loopMarkTransform;
     [SerializeField] private List<float> markRotations;
-    // [SerializeField] private Image looperSpeedImage;
-    // [SerializeField] private List<Sprite> looperSpeedSprites;
 
     [SerializeField] public Color fadeColor;
     [SerializeField] private List<GameObject> buttonsObjects;

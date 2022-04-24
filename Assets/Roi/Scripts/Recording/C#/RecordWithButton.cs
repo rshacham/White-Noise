@@ -64,6 +64,21 @@ public class RecordWithButton : MonoBehaviour
 	
 	public void Record()
 	{
+		if (SoundManager._shared.startingSoundSource.clip != null)
+		{
+			return;
+		}
+		
+		if (SoundManager._shared.tutorial.activeInHierarchy)
+		{
+			SoundManager._shared.tutorial.SetActive(false);
+		}
+		
+		if (SoundManager._shared.logo.activeInHierarchy)
+		{
+			SoundManager._shared.logo.SetActive(false);
+		}
+		
 		//If there is a microphone
 		if(micConnected)
 		{
@@ -82,8 +97,8 @@ public class RecordWithButton : MonoBehaviour
 			else //Recording is in progress
 			{
 				//Case the 'Stop and Play' button gets pressed, or time ended
-					
-					StopRecord();
+				
+				StopRecord();
 			}
 		}
 		

@@ -13,13 +13,19 @@ public class SoundManager : MonoBehaviour
     public AudioSource mySource3;
     public AudioSource mySource4;
 
-    [SerializeField] private AudioSource startingSoundSource;
+    [SerializeField] public AudioSource startingSoundSource;
+    public bool firstSoundPlayed;
+    [SerializeField] public GameObject tutorial;
+    [SerializeField] public GameObject logo;
+
 
     public List<AudioSource> mySources;
     public bool loopSound;
     [SerializeField] public List<float> mySpeeds;
     public Dictionary<AudioSource, float> LooperEnumerators = new Dictionary<AudioSource, float>();
     [SerializeField] private List<Animator> gameAnimators;
+    
+
 
     // Start is called before the first frame
     void Start()
@@ -33,9 +39,11 @@ public class SoundManager : MonoBehaviour
         {
             animator.enabled = false;
         }
-
+        tutorial.SetActive(false);
         startingSoundSource.time = 2f;
         startingSoundSource.Play();
+        firstSoundPlayed = true;
+
 
         _shared = this;
         //mySource = GetComponent<AudioSource>();
@@ -43,7 +51,12 @@ public class SoundManager : MonoBehaviour
 
     private void Update()
     {
-        print(mySource4.time);
+        if (firstSoundPlayed && !startingSoundSource.isPlaying)
+        {
+            firstSoundPlayed = false;
+            startingSoundSource.clip = null;
+            tutorial.SetActive(true);
+        }
     }
 
     // Update is called once per frame
