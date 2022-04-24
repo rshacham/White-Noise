@@ -509,6 +509,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 43275076}
     - target: {fileID: 2220160540271751542, guid: a29f027ba0b7ecb45abee97be1ee340e, type: 3}
+      propertyPath: oneRecordTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2220160540271751542, guid: a29f027ba0b7ecb45abee97be1ee340e, type: 3}
       propertyPath: buttonSprites.Array.size
       value: 10
       objectReference: {fileID: 0}
@@ -930,15 +934,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2220160541954956546, guid: a29f027ba0b7ecb45abee97be1ee340e, type: 3}
       propertyPath: fadeColor.b
-      value: 0.5849056
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2220160541954956546, guid: a29f027ba0b7ecb45abee97be1ee340e, type: 3}
       propertyPath: fadeColor.g
-      value: 0.5849056
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2220160541954956546, guid: a29f027ba0b7ecb45abee97be1ee340e, type: 3}
       propertyPath: fadeColor.r
-      value: 0.5849056
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2220160541954956546, guid: a29f027ba0b7ecb45abee97be1ee340e, type: 3}
       propertyPath: soundSource
@@ -1215,6 +1219,10 @@ PrefabInstance:
       propertyPath: buttonImage
       value: 
       objectReference: {fileID: 2086788714}
+    - target: {fileID: 2220160540271751542, guid: a29f027ba0b7ecb45abee97be1ee340e, type: 3}
+      propertyPath: oneRecordTime
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2220160540271751542, guid: a29f027ba0b7ecb45abee97be1ee340e, type: 3}
       propertyPath: buttonSprites.Array.size
       value: 10
@@ -1693,15 +1701,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2220160541954956546, guid: a29f027ba0b7ecb45abee97be1ee340e, type: 3}
       propertyPath: fadeColor.b
-      value: 0.58431375
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2220160541954956546, guid: a29f027ba0b7ecb45abee97be1ee340e, type: 3}
       propertyPath: fadeColor.g
-      value: 0.58431375
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2220160541954956546, guid: a29f027ba0b7ecb45abee97be1ee340e, type: 3}
       propertyPath: fadeColor.r
-      value: 0.58431375
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2220160541954956546, guid: a29f027ba0b7ecb45abee97be1ee340e, type: 3}
       propertyPath: soundSource
@@ -2636,15 +2644,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7157788018624764935, guid: d93d172438c3f1d4eb192e1bf77165b0, type: 3}
       propertyPath: fadeColor.b
-      value: 0.58431375
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7157788018624764935, guid: d93d172438c3f1d4eb192e1bf77165b0, type: 3}
       propertyPath: fadeColor.g
-      value: 0.58431375
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7157788018624764935, guid: d93d172438c3f1d4eb192e1bf77165b0, type: 3}
       propertyPath: fadeColor.r
-      value: 0.58431375
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7157788018624764935, guid: d93d172438c3f1d4eb192e1bf77165b0, type: 3}
       propertyPath: pitchSlider
@@ -2846,6 +2854,10 @@ PrefabInstance:
       propertyPath: buttonImage
       value: 
       objectReference: {fileID: 354701026}
+    - target: {fileID: 7157788019292391946, guid: d93d172438c3f1d4eb192e1bf77165b0, type: 3}
+      propertyPath: oneRecordTime
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7157788019292391946, guid: d93d172438c3f1d4eb192e1bf77165b0, type: 3}
       propertyPath: buttonSprites.Array.size
       value: 10
@@ -5740,7 +5752,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2220160540169494005, guid: a29f027ba0b7ecb45abee97be1ee340e, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -228
+      value: -178
       objectReference: {fileID: 0}
     - target: {fileID: 2220160540169494006, guid: a29f027ba0b7ecb45abee97be1ee340e, type: 3}
       propertyPath: soundScript
@@ -5842,6 +5854,10 @@ PrefabInstance:
       propertyPath: buttonImage
       value: 
       objectReference: {fileID: 756661545}
+    - target: {fileID: 2220160540271751542, guid: a29f027ba0b7ecb45abee97be1ee340e, type: 3}
+      propertyPath: oneRecordTime
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2220160540271751542, guid: a29f027ba0b7ecb45abee97be1ee340e, type: 3}
       propertyPath: buttonSprites.Array.size
       value: 10
@@ -6312,15 +6328,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2220160541954956546, guid: a29f027ba0b7ecb45abee97be1ee340e, type: 3}
       propertyPath: fadeColor.b
-      value: 0.58431375
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2220160541954956546, guid: a29f027ba0b7ecb45abee97be1ee340e, type: 3}
       propertyPath: fadeColor.g
-      value: 0.58431375
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2220160541954956546, guid: a29f027ba0b7ecb45abee97be1ee340e, type: 3}
       propertyPath: fadeColor.r
-      value: 0.58431375
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2220160541954956546, guid: a29f027ba0b7ecb45abee97be1ee340e, type: 3}
       propertyPath: soundSource
