@@ -36,6 +36,7 @@ public class SoundButton : MonoBehaviour
     {
         soundSource.volume = volumeSlider.value;
         soundSource.pitch = pitchSlider.value;
+        print(soundSource.time);
     }
 
     public void LoadSound(String path)
@@ -56,8 +57,8 @@ public class SoundButton : MonoBehaviour
     {
         if (soundSource.clip != null)
         {
-            soundSource.PlayOneShot(soundSource.clip);
-
+            soundSource.time = 0;
+            soundSource.Play();
         }
         // if (mySound != null)
         // {

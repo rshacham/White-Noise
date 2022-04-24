@@ -124,8 +124,6 @@ public class RecordWithButton : MonoBehaviour
 		{
 			curSprite = 9;
 		}
-		print((int) curSprite);
-		print(buttonSprites.Count);
 		buttonImage.sprite = buttonSprites[(int) curSprite];
 		if (recordOn)
 		{
