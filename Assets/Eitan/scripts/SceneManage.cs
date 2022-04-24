@@ -50,6 +50,6 @@ public class SceneManage : MonoBehaviour
 
     public void Restart()
     {
-        SceneManager.LoadScene("New Main Scene 1");
+        SceneManager.LoadScene("New Main Scene");
     }
 }
