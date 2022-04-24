@@ -25,6 +25,9 @@ public class SoundManager : MonoBehaviour
     public Dictionary<AudioSource, float> LooperEnumerators = new Dictionary<AudioSource, float>();
     [SerializeField] private List<Animator> gameAnimators;
     
+    [SerializeField] public float recordDelay;
+
+    
 
 
     // Start is called before the first frame
@@ -102,7 +105,7 @@ public class SoundManager : MonoBehaviour
             {
                 audioSource.Play();
                 Debug.Log(LooperEnumerators[audioSource] + audioSource.clip.length);
-                yield return new WaitForSeconds(LooperEnumerators[audioSource] + (audioSource.clip.length / audioSource.pitch) - myScript.recordDelay / audioSource.pitch);
+                yield return new WaitForSeconds(LooperEnumerators[audioSource] + (audioSource.clip.length / audioSource.pitch) - recordDelay / audioSource.pitch);
             }
             
             else
