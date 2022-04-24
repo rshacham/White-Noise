@@ -58,9 +58,13 @@ public class SoundButton : MonoBehaviour
 
     public void PlaySoundOneTime()
     {
+        if (soundSource.isPlaying)
+        {
+            soundSource.Stop();
+        }
         if (soundSource.clip != null)
         {
-            soundSource.time = 0;
+            //soundSource.time = 0;
             soundSource.Play();
         }
         // if (mySound != null)

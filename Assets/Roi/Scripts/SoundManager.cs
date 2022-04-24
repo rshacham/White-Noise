@@ -53,7 +53,11 @@ public class SoundManager : MonoBehaviour
 
     public void PlayOuterSoundOneTime(AudioSource audioSource, AudioClip mySound)
     {
-        audioSource.clip = mySound;
+        if (audioSource.isPlaying)
+        {
+            audioSource.Stop();
+        }
+        //audioSource.clip = mySound;
         audioSource.Play();
     }
 
