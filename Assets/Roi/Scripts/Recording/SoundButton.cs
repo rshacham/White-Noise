@@ -26,6 +26,11 @@ public class SoundButton : MonoBehaviour
     [SerializeField] private List<Slider> unitSliders;
     [SerializeField] private List<Button> unitButtons;
 
+    //private float timeSinceRecordStart;
+    public float untrimmedRecordTime; 
+    private float trimmedRecordTime;
+    [SerializeField] private float recordDelayAtEnd;
+
 
     void Start()
     {
@@ -38,6 +43,11 @@ public class SoundButton : MonoBehaviour
     {
         soundSource.volume = volumeSlider.value;
         soundSource.pitch = pitchSlider.value;
+        if (untrimmedRecordTime > SoundManager._shared.recordDelay &&
+            untrimmedRecordTime < SoundManager._shared.oneRecordTime - recordDelayAtEnd)
+        {
+            trimmedRecordTime += Time.deltaTime;
+        }
     }
 
     public void LoadSound(String path)
@@ -120,6 +130,8 @@ public class SoundButton : MonoBehaviour
             slider.enabled = state;
         }
     }
+    
+    
     
     
     

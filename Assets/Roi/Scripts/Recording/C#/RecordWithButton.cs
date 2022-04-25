@@ -131,23 +131,23 @@ public class RecordWithButton : MonoBehaviour
 		soundScript.TurnButtons(true);
 		loaded = true;
 		soundScript.soundSource.clip = goAudioSource.clip;
-		//String soundPath = "record" + recordNum.ToString();
-		//SavWav.Save(soundPath, goAudioSource.clip);
-		//soundScript.soundPath = Path.Combine(Application.dataPath, soundPath);
+		String soundPath = "record" + recordNum.ToString();
+		SavWav.Save(soundPath, goAudioSource.clip);
+		// soundScript.soundPath = Path.Combine(Application.dataPath, soundPath);
 		//goAudioSource.Play(); //Playback the recorded audio
 		//soundScript.LoadSound(Path.Combine(Application.dataPath, soundPath));
 	}
 
 	void Update()
 	{
-		float normalizedValue = Mathf.InverseLerp(0, oneRecordTime, curRecordTime);
+		float normalizedValue = Mathf.InverseLerp(0, oneRecordTime - SoundManager._shared.recordDelay - 0.3f, curRecordTime - SoundManager._shared.recordDelay);
 		float curSprite = Mathf.Lerp(0, buttonSprites.Count - 1, normalizedValue);
 		if (curSprite > 9)
 		{
 			curSprite = 9;
 		}
 		buttonImage.sprite = buttonSprites[(int) curSprite];
-		if (recordOn)
+		if (recordOn && soundScript)
 		{
 			curRecordTime += Time.deltaTime;
 		}

@@ -7386,7 +7386,7 @@ PrefabInstance:
       objectReference: {fileID: 82287707}
     - target: {fileID: 9128230322625490800, guid: 61fdc1b84df3551448d1d9e26f3950de, type: 3}
       propertyPath: recordDelay
-      value: 0.45
+      value: 0.48
       objectReference: {fileID: 0}
     - target: {fileID: 9128230322625490800, guid: 61fdc1b84df3551448d1d9e26f3950de, type: 3}
       propertyPath: mySpeeds.Array.size

@@ -26,6 +26,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private List<Animator> gameAnimators;
     
     [SerializeField] public float recordDelay;
+    [SerializeField] public float oneRecordTime;
 
     
 
