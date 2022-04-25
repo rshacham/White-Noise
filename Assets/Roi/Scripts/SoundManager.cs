@@ -16,7 +16,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField] public AudioSource startingSoundSource;
     public bool firstSoundPlayed;
     [SerializeField] public GameObject tutorial;
-    [SerializeField] public GameObject logo;
+    // [SerializeField] public GameObject logo;
 
 
     public List<AudioSource> mySources;
@@ -27,6 +27,10 @@ public class SoundManager : MonoBehaviour
     
     [SerializeField] public float recordDelay;
     [SerializeField] public float oneRecordTime;
+    
+    [SerializeField] public GameObject logo;
+
+    [SerializeField] public GameObject greenDot;
 
     
 
@@ -60,6 +64,31 @@ public class SoundManager : MonoBehaviour
             firstSoundPlayed = false;
             startingSoundSource.clip = null;
             tutorial.SetActive(true);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+
+        if (Input.GetKeyDown(KeyCode.F) && mySource1.clip != null)
+        {
+            mySource1.Play();
+        }
+        
+        if (Input.GetKeyDown(KeyCode.T) && mySource4.clip != null)
+        {
+            mySource4.Play();
+        }
+        
+        if (Input.GetKeyDown(KeyCode.H) && mySource3.clip != null)
+        {
+            mySource3.Play();
+        }
+        
+        if (Input.GetKeyDown(KeyCode.G) && mySource2.clip != null)
+        {
+            mySource2.Play();
         }
     }
 

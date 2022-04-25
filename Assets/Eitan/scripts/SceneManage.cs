@@ -48,6 +48,20 @@ public class SceneManage : MonoBehaviour
         }
     }
 
+    public void SceneToggleFlappy()
+    {
+        if (!SoundManager._shared.OneClipLoaded())
+        {
+            return;
+        }
+        if (isScene2Active)
+        {
+            SceneManager.UnloadSceneAsync(otherSceneName);
+            isScene2Active = false;
+            toggleImage.sprite = toggleOffSprite;
+        }
+    }
+
     public void Restart()
     {
         SceneManager.LoadScene("New Main Scene");

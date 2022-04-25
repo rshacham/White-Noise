@@ -17,6 +17,7 @@ public class SoundButton : MonoBehaviour
     public int looperCounter;
     public LoopButton loopButton;
 
+
     public RectTransform loopMarkTransform;
     [SerializeField] private List<float> markRotations;
 
@@ -37,7 +38,6 @@ public class SoundButton : MonoBehaviour
         Vector3 a = loopMarkTransform.eulerAngles;
         loopMarkTransform.eulerAngles = new Vector3(a.x, a.y, markRotations[0]);
         TurnButtons(false);
-
     }
     public void Update()
     {

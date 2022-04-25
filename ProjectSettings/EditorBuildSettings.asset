@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Eitan/Scenes/voicy bird.unity
     guid: 62a07d9f0ae22234185dc1d7c1e86d0a
+  - enabled: 1
+    path: Assets/Roi/Scenes/Space Invaders.unity
+    guid: 76f1ff034b300914e9b911f336b490a1
   m_configObjects: {}

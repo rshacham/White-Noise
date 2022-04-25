@@ -9,6 +9,7 @@ public class InfoButton : MonoBehaviour
     
     public void TurnInfo()
     {
+        
         active = !active;
         info.SetActive(active);
     }

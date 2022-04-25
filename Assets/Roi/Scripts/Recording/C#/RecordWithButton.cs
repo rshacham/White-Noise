@@ -68,16 +68,22 @@ public class RecordWithButton : MonoBehaviour
 		{
 			return;
 		}
+
+		if (soundScript.soundSource.isPlaying)
+		{
+			soundScript.soundSource.Stop();
+		}
+
+		if (soundScript.loopButton.isOn)
+		{
+			soundScript.loopButton.PressedLoop();
+		}
 		
 		if (SoundManager._shared.tutorial.activeInHierarchy)
 		{
 			SoundManager._shared.tutorial.SetActive(false);
 		}
 		
-		if (SoundManager._shared.logo.activeInHierarchy)
-		{
-			SoundManager._shared.logo.SetActive(false);
-		}
 		
 		//If there is a microphone
 		if(micConnected)
@@ -126,13 +132,25 @@ public class RecordWithButton : MonoBehaviour
 		if (!SoundManager._shared.OneClipLoaded())
 		{
 			SoundManager._shared.TurnOnAnimations();
+			if (SoundManager._shared.logo.activeInHierarchy)
+			{
+				SoundManager._shared.logo.SetActive(false);
+			}
+
+			if (!SoundManager._shared.greenDot.activeInHierarchy)
+			{
+				SoundManager._shared.greenDot.SetActive(true);
+			}
 		}
+		
+
+
 		
 		soundScript.TurnButtons(true);
 		loaded = true;
 		soundScript.soundSource.clip = goAudioSource.clip;
-		String soundPath = "record" + recordNum.ToString();
-		SavWav.Save(soundPath, goAudioSource.clip);
+		// String soundPath = "record" + recordNum.ToString();
+		// SavWav.Save(soundPath, goAudioSource.clip);
 		// soundScript.soundPath = Path.Combine(Application.dataPath, soundPath);
 		//goAudioSource.Play(); //Playback the recorded audio
 		//soundScript.LoadSound(Path.Combine(Application.dataPath, soundPath));
@@ -140,7 +158,7 @@ public class RecordWithButton : MonoBehaviour
 
 	void Update()
 	{
-		float normalizedValue = Mathf.InverseLerp(0, oneRecordTime - SoundManager._shared.recordDelay - 0.3f, curRecordTime - SoundManager._shared.recordDelay);
+		float normalizedValue = Mathf.InverseLerp(0, oneRecordTime - SoundManager._shared.recordDelay - 0.3f, curRecordTime - SoundManager._shared.recordDelay + 0.15f);
 		float curSprite = Mathf.Lerp(0, buttonSprites.Count - 1, normalizedValue);
 		if (curSprite > 9)
 		{
