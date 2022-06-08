@@ -1,3 +1,8 @@
+<div align='center'>
+
+<img src='Image/White Noise.png' width = "500" height = "250">
+  
+<div align='left'>
 
   
 ## About
